@@ -9,6 +9,7 @@ authors = [
 requires-python = ">=3.12"
 dependencies = [
     "accelerate>=1.0.0",
+    "boto3>=1.35.0",
     "diffusers>=0.39.0",
     "pydantic>=2.0",
     "runpod>=1.11.0",
@@ -27,7 +28,7 @@ package = false
 [tool.uv.sources]
 torch = { index = "pytorch-cuda" }
 
-[[tool.uv.indexes]]
+[[tool.uv.index]]
 name = "pytorch-cuda"
 url = "https://download.pytorch.org/whl/cu124"
 explicit = true
