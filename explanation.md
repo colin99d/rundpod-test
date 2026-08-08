@@ -6,6 +6,16 @@ A RunPod serverless endpoint that generates an image from a text prompt, uploads
 it to S3/R2, and returns a public URL. A vanilla-HTML frontend (`index.html`)
 lets anyone test it from a browser with an API key.
 
+```mermaid
+flowchart LR
+    A[Browser<br/>index.html] -->|POST prompt| B[RunPod<br/>Serverless Worker]
+    B -->|generate| C[Diffusers<br/>Pipeline]
+    C -->|PIL Image| B
+    B -->|upload PNG| D[(S3 / R2)]
+    D -->|public URL| B
+    B -->|image_url| A
+```
+
 ## Why the pieces are what they are
 
 **Serverless, not a persistent GPU** — an idle A100 costs hundreds/month;
