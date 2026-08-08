@@ -8,6 +8,7 @@ authors = [
 ]
 requires-python = ">=3.12"
 dependencies = [
+    "accelerate>=1.0.0",
     "diffusers>=0.39.0",
     "pydantic>=2.0",
     "runpod>=1.11.0",
@@ -22,6 +23,14 @@ extra-paths = ["src"]
 
 [tool.uv]
 package = false
+
+[tool.uv.sources]
+torch = { index = "pytorch-cuda" }
+
+[[tool.uv.indexes]]
+name = "pytorch-cuda"
+url = "https://download.pytorch.org/whl/cu124"
+explicit = true
 
 [dependency-groups]
 dev = [

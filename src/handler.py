@@ -12,7 +12,7 @@ class HandlerInput(BaseModel):
     prompt: str
 
 
-def handler(event):
+def handler(event: dict[str, dict[str, str]]):
     #   This function processes incoming requests to your Serverless endpoint.
     #
     #    Args:
